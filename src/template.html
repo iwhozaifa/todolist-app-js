@@ -5,17 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <div class="sidebar">
-    <div id="list">
-      <button>All todos</button>
-      <button>Today</button>
-      <button>Completed</button>
+  </header>
+  <div class="content">
+    <div class="sidebar">
+      <h3>Todo List</h3>
+      <div id="list">
+        <button><i class="fa fa-home"></i> All todos</button>
+        <button><i class="fa fa-calendar"></i> Today</button>
+        <button class="bottom"><i class="fa fa-check"></i> Completed</button>
+      </div>
+      <div class="project">
+      </div>
     </div>
-    <div class="project">
-    </div>
+    <div class="lists" id="lists"></div>
   </div>
 </body>
 
