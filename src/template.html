@@ -13,12 +13,20 @@
   <div class="content">
     <div class="sidebar">
       <h3>Todo List</h3>
-      <div id="list">
-        <button><i class="fa fa-home"></i> All todos</button>
-        <button><i class="fa fa-calendar"></i> Today</button>
-        <button class="bottom"><i class="fa fa-check"></i> Completed</button>
-      </div>
-      <div class="project">
+      <div class="wrapper">
+        <div id="list" class="lists">
+          <button class="btn"><i class="fa fa-home"></i> All todos</button>
+          <button class="btn"><i class="fa fa-calendar"></i> Today</button>
+          <button class="btn bottom"><i class="fa fa-check"></i> Completed</button>
+        </div>
+        <hr>
+        <div class="projects" id="projects">
+          <h3>Projects</h3>
+          <button class="btn"><i class="fa fa-folder"></i> Default</button>
+        </div>
+        <div class="new">
+          <button class="btn new-btn"><i class="fa fa-plus"></i> New Project</button>
+        </div>
       </div>
     </div>
     <div class="lists" id="lists"></div>
