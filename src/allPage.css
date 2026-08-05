@@ -1,0 +1,70 @@
+/* Markup: <button class="btn fx-10"><span class="btn-label">Press</span></button> */
+
+.addBtn {
+  /* Theme tokens — override these to recolour the button */
+  --primary: #F4FF2B;
+  --secondary: #0F191E;
+  --surface: #E2F1F2;
+  --bink: var(--secondary);
+  /* ink / foreground */
+  --bsurf: var(--surface);
+  /* surface / background */
+  position: relative;
+  isolation: isolate;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border: 1px solid var(--bink);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--bink);
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-label {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  transition: inherit;
+}
+
+/* Shared sliding panel used by many fill effects */
+.addBtn::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: var(--bink);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+
+.fx-10 {
+  overflow: visible;
+  box-shadow: 0 4px 0 0 color-mix(in srgb, var(--bink) 40%, transparent);
+}
+
+.fx-10::before {
+  display: none;
+}
+
+.fx-10:hover {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 0 color-mix(in srgb, var(--bink) 40%, transparent);
+}
+
+
+
+.header {
+  margin: 5% 10px 0 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
