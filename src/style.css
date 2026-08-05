@@ -16,6 +16,8 @@
   grid-column: 1/2;
   height: 100vh;
   border-right: solid 2px black;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar h3 {
@@ -45,7 +47,7 @@
 }
 
 button:hover {
-  background-color: #f2f2f2;
+  background-color: #f1f5f9;
 }
 
 .projects {
@@ -57,6 +59,8 @@ button:hover {
 .wrapper {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding-bottom: 20px;
   gap: 20px;
 }
 
@@ -65,8 +69,21 @@ hr {
 }
 
 .new {
-  align-items: flex-end;
+  margin-top: auto;
+  margin: auto 10px 0 10px;
+  display: flex;
 }
+
+.new-btn {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.new-btn:hover {
+  background-color: #f1f5f9;
+}
+
 
 .fa {
   padding-right: 15px;
