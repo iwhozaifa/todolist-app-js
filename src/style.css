@@ -1,3 +1,9 @@
+:root {
+  --border-color: #e2e8f0;
+  --primary-bg: #f8fafc;
+  --secondary-bg: #f1f5f9;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +53,7 @@
 }
 
 button:hover {
-  background-color: #f1f5f9;
+  background-color: var(--secondary-bg);
 }
 
 .projects {
@@ -76,12 +82,12 @@ hr {
 
 .new-btn {
   width: 100%;
-  border: 1px solid #e2e8f0;
-  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  background-color: var(--primary-bg);
 }
 
 .new-btn:hover {
-  background-color: #f1f5f9;
+  background-color: var(--secondary-bg);
 }
 
 
@@ -89,7 +95,7 @@ hr {
   padding-right: 15px;
 }
 
-.fa-home {
+.fa-list {
   color: blueviolet;
 }
 
