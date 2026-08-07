@@ -76,16 +76,16 @@ function createForm(){
 }
 
 function createCard(data){
-  const todoList = document.getElementById("lists")
+  const todoList = document.getElementById("content")
   const card = document.createElement("div")
   card.classList.add("listCard");
 
   card.innerHTML = `
   <h4>${data.title}</h4>
   <p>${data.description}</p>
-  <button class="remove-btn">Delete <i class="fa fa-trash"></i></button>
+  <button class="remove">Delete <i class="fa fa-trash"></i></button>
   `
-  card.querySelector(".remove-btn").addEventListener("click",()=>{
+  card.querySelector(".remove").addEventListener("click",()=>{
     card.remove();
   })
 

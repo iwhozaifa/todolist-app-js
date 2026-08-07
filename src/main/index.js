@@ -1,6 +1,6 @@
 import "./style.css";
-import "./allPage.css"
-import {addTodo, render, } from "./all-todos.js"
+import "../styles/allPage.css"
+import {addTodo, render, } from "../app/all-todos.js"
 
 const allBtn = document.getElementById("all")
 
