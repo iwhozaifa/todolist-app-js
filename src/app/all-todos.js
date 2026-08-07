@@ -1,5 +1,24 @@
 const contentArea = document.getElementById("content")
 let formCounter = 1;
+//Array to hold the items in memory
+let todos = [];
+
+//Helper Function to Save current State to local Storage 
+function saveToLocalStorage(){
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+//Helper function to load todos from Local Storage
+function loadFromLocalStorage(){
+  try {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  } 
+  catch (e) {
+    console.log(e);
+    return [];
+  }
+}
 
 export function render(){
   contentArea.innerHTML=`
@@ -9,6 +28,10 @@ export function render(){
   </div>
   `
   addTodo();
+
+  //Rendering Previously Saved todos
+  todos = loadFromLocalStorage();
+  todos.forEach(item => createCard(item));
 }
 
 export function addTodo(){
@@ -57,12 +80,17 @@ function createForm(){
   dialog.querySelector(".remove-btn").addEventListener("click", ()=>{
     dialog.close();
     });
-  //submti dialog Listener
+  //submit dialog Listener
     dialog.querySelector(".dynamic-form").addEventListener("submit", (event)=>{
       event.preventDefault();
 
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData.entries());
+      
+      //Add Unique ID to each item created
+      data.id = Date.now().toString();
+      todos.push(data);
+      saveToLocalStorage();
 
       createCard(data);
 
@@ -71,9 +99,11 @@ function createForm(){
     })
     
     dialog.showModal();
-  formCounter++;
 
 }
+  
+const cardContainer = document.createElement("div")
+  cardContainer.classList.add("cardContainer")
 
 function createCard(data){
   const todoList = document.getElementById("content")
@@ -83,28 +113,16 @@ function createCard(data){
   card.innerHTML = `
   <h4>${data.title}</h4>
   <p>${data.description}</p>
-  <button class="remove">Delete <i class="fa fa-trash"></i></button>
+  <p>${data.date}</p>
+  <button class="remove addBtn fx-10" ><span class="btn-label"><i class="fa-solid fa-trash"></i></span></button>
   `
   card.querySelector(".remove").addEventListener("click",()=>{
+    todos = todos.filter((item) => item.id !== data.id);
+    saveToLocalStorage();
     card.remove();
-  })
 
-  todoList.appendChild(card);
+  })
+  cardContainer.appendChild(card)
+  todoList.appendChild(cardContainer);
 }
 
-
-contentArea.addEventListener('click', (event) => {
-  if (event.target.classList.contains('remove-btn')) {
-    const formCard = event.target.closest('.form-card');
-    formCard.remove();
-  }
-});
-
-contentArea.addEventListener('submit', (event) => {
-  if (event.target.classList.contains('dynamic-form')) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
-    console.log('Submitted Data:', data);
-  }
-});

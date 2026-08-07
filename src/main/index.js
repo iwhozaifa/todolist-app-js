@@ -1,5 +1,6 @@
 import "./style.css";
 import "../styles/allPage.css"
+import "../styles/card.css"
 import {addTodo, render, } from "../app/all-todos.js"
 
 const allBtn = document.getElementById("all")
