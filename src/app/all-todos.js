@@ -1,5 +1,4 @@
 const contentArea = document.getElementById("content")
-let formCounter = 1;
 //Array to hold the items in memory
 let todos = [];
 
@@ -58,8 +57,8 @@ function createForm(){
       
       <h3>New Todo</h3>
       <div class="formName">
-      <label for="title-${formCounter}">Title</label>
-      <input type="text" id="title-${formCounter}" name="title" required ">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" required ">
       </div>
       <div class="formDesc">
       <label for="desc">Description</label>
@@ -111,6 +110,7 @@ function createCard(data){
   card.classList.add("listCard");
 
   card.innerHTML = `
+  <input type="radio" id="checkbox">
   <h4>${data.title}</h4>
   <p>${data.description}</p>
   <p>${data.date}</p>
@@ -125,4 +125,3 @@ function createCard(data){
   cardContainer.appendChild(card)
   todoList.appendChild(cardContainer);
 }
-
