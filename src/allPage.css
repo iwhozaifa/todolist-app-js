@@ -68,3 +68,44 @@
   align-items: center;
   justify-content: space-between;
 }
+
+form {
+  border-radius: 20px;
+}
+
+.dynamic-form {
+  margin: 10%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dynamic-form input {
+  padding: 4px;
+  border-radius: 4px;
+
+}
+
+.formBtns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.submitBtn {
+  background-color: var(--primary)
+}
+
+.formName {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.formDesc {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}

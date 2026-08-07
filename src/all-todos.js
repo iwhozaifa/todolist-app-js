@@ -34,15 +34,18 @@ function createForm(){
     <form class="dynamic-form">
       
       <h3>Form #${formCounter}</h3>
-
+      <div class="formName">
       <label for="title-${formCounter}">Title:</label>
       <input type="text" id="title-${formCounter}" name="title" required placeholder="Enter title...">
-      
+      </div>
+      <div class="formDesc">
       <label for="desc-${formCounter}">Description:</label>
       <textarea id="desc-${formCounter}" name="description" placeholder="Enter description..."></textarea>
-      
-      <button type="submit" class="submitBtn">Submit</button>
-      <button type="button" class="remove-btn">Remove</button>
+      </div>
+      <div class="formBtns">
+        <button type="button" class="remove-btn addBtn fx-10"><span class="btn-label">Remove</span></button>
+        <button type="submit" class="submitBtn addBtn fx-10"><span class="btn-label">Submit</span></button>
+      </div>
     </form>
   `;
       document.body.appendChild(dialog);
