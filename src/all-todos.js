@@ -33,18 +33,21 @@ function createForm(){
     dialog.innerHTML = `
     <form class="dynamic-form">
       
-      <h3>Form #${formCounter}</h3>
+      <h3>New Todo</h3>
       <div class="formName">
-      <label for="title-${formCounter}">Title:</label>
-      <input type="text" id="title-${formCounter}" name="title" required placeholder="Enter title...">
+      <label for="title-${formCounter}">Title</label>
+      <input type="text" id="title-${formCounter}" name="title" required ">
       </div>
       <div class="formDesc">
-      <label for="desc-${formCounter}">Description:</label>
-      <textarea id="desc-${formCounter}" name="description" placeholder="Enter description..."></textarea>
+      <label for="desc">Description</label>
+      <textarea id="desc" name="description" rows="5"></textarea>
       </div>
+      <div class="formDate">
+      <label for="date">Due Date</label>
+      <input type="date" id="date" name="date">
       <div class="formBtns">
+              <button type="submit" class="submitBtn addBtn fx-10"><span class="btn-label">Submit</span></button>
         <button type="button" class="remove-btn addBtn fx-10"><span class="btn-label">Remove</span></button>
-        <button type="submit" class="submitBtn addBtn fx-10"><span class="btn-label">Submit</span></button>
       </div>
     </form>
   `;
