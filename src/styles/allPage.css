@@ -1,119 +1,121 @@
 .addBtn {
-  /* Theme tokens — override these to recolour the button */
-  --primary: #F4FF2B;
-  --secondary: #0F191E;
-  --surface: #E2F1F2;
-  --bink: var(--secondary);
-  /* ink / foreground */
-  --bsurf: var(--surface);
-  /* surface / background */
-  position: relative;
-  isolation: isolate;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 13px 24px;
-  border: 1px solid var(--bink);
-  border-radius: 8px;
-  background: transparent;
-  color: var(--bink);
-  cursor: pointer;
-  overflow: hidden;
-  white-space: nowrap;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	/* Theme tokens — override these to recolour the button */
+	--primary: #f4ff2b;
+	--secondary: #0f191e;
+	--surface: #e2f1f2;
+	--bink: var(--secondary);
+	/* ink / foreground */
+	--bsurf: var(--surface);
+	/* surface / background */
+	position: relative;
+	isolation: isolate;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 13px 24px;
+	border: 1px solid var(--bink);
+	border-radius: 8px;
+	background: transparent;
+	color: var(--bink);
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-label {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  transition: inherit;
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	transition: inherit;
 }
 
 /* Shared sliding panel used by many fill effects */
 .addBtn::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: var(--bink);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	background: var(--bink);
+	transition:
+		transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+		opacity 0.4s ease;
 }
 
 .fx-10 {
-  overflow: visible;
-  box-shadow: 0 4px 0 0 color-mix(in srgb, var(--bink) 40%, transparent);
+	overflow: visible;
+	box-shadow: 0 4px 0 0 color-mix(in srgb, var(--bink) 40%, transparent);
 }
 
 .fx-10::before {
-  display: none;
+	display: none;
 }
 
 .fx-10:hover {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 0 color-mix(in srgb, var(--bink) 40%, transparent);
+	transform: translateY(3px);
+	box-shadow: 0 1px 0 0 color-mix(in srgb, var(--bink) 40%, transparent);
 }
 
 .header {
-  margin: 5% 10px 0 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+	margin: 5% 10px 0 10px;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 }
 
 dialog {
-  width: 90vh;
-  max-width: 500px;
-  height: 70%;
-  padding: 24px;
-  border-radius: 8px;
-  overflow: visible;
+	width: 90vh;
+	max-width: 500px;
+	height: 70%;
+	padding: 24px;
+	border-radius: 8px;
+	overflow: visible;
 }
 
 .dynamic-form {
-  width: 100%;
-  padding: 20px;
-  max-width: 500px;
-  margin: 2em auto;
-  box-sizing: border-box;
+	width: 100%;
+	padding: 20px;
+	max-width: 500px;
+	margin: 2em auto;
+	box-sizing: border-box;
 
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .dynamic-form input,
 .dynamic-form textarea {
-  padding: 10px;
-  border-radius: 8px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #AEABB0;
+	padding: 10px;
+	border-radius: 8px;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #aeabb0;
 }
 
 .formBtns {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 10px;
 }
 
 .submitBtn {
-  background-color: var(--primary)
+	background-color: var(--primary);
 }
 
 .formName,
 .formDesc,
 .formDate {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 form label {
-  color: #0F191E;
-  font-size: 16px;
+	color: #0f191e;
+	font-size: 16px;
 }

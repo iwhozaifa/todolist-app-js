@@ -1,17 +1,16 @@
-import { todos, saveToLocalStorage } from "./completed.js"
-import { createCard } from "./all-todos.js"
+import { todos, saveToLocalStorage } from "./completed.js";
+import { createCard } from "./all-todos.js";
 
+export function createForm() {
+	let dialog = document.getElementById("todoDialog");
 
-export function createForm(){
-    let dialog = document.getElementById("todoDialog")
+	if (!dialog) {
+		dialog = document.createElement("dialog");
+		dialog.id = "todoDialog";
+		dialog.classList.add("todo-modal");
+	}
 
-    if(!dialog){
-      dialog = document.createElement("dialog");
-      dialog.id = "todoDialog"
-      dialog.classList.add("todo-modal")
-    }
-
-    dialog.innerHTML = `
+	dialog.innerHTML = `
     <form class="dynamic-form">
       
       <h3>New Todo</h3>
@@ -32,33 +31,32 @@ export function createForm(){
       </div>
     </form>
   `;
-      document.body.appendChild(dialog);
-    
-  //Close Dialog Listener
-  dialog.querySelector(".remove-btn").addEventListener("click", ()=>{
-    dialog.close();
-    });
-  //submit dialog Listener
-    dialog.querySelector(".dynamic-form").addEventListener("submit", (event) => {
-      event.preventDefault();
+	document.body.appendChild(dialog);
 
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData.entries());
-      
-      //Add Unique ID to each item created
-      data.id = Date.now().toString();
-    //Variable from completed
-      todos.push(data);
-    //Function from completed
-      saveToLocalStorage();
-    //Function from all-todos
-      createCard(data);
+	//Close Dialog Listener
+	dialog.querySelector(".remove-btn").addEventListener("click", () => {
+		dialog.close();
+	});
+	//submit dialog Listener
+	dialog.querySelector(".dynamic-form").addEventListener("submit", (event) => {
+		event.preventDefault();
 
-      event.target.reset();
-      
-      dialog.close();
-    })
-    
-    dialog.showModal();
+		const formData = new FormData(event.target);
+		const data = Object.fromEntries(formData.entries());
+
+		//Add Unique ID to each item created
+		data.id = Date.now().toString();
+		//Variable from completed
+		todos.push(data);
+		//Function from completed
+		saveToLocalStorage();
+		//Function from all-todos
+		createCard(data);
+
+		event.target.reset();
+
+		dialog.close();
+	});
+
+	dialog.showModal();
 }
-

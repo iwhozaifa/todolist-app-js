@@ -1,43 +1,40 @@
-import { loadFromLocalStorage ,getActiveTodos } from "./completed.js"; 
-import { createCard } from "./all-todos.js"
-const contentArea = document.getElementById("content")
+import { loadFromLocalStorage, getActiveTodos } from "./completed.js";
+import { createCard } from "./all-todos.js";
+const contentArea = document.getElementById("content");
 
-export function showToday(){
-  loadFromLocalStorage();
+export function showToday() {
+	loadFromLocalStorage();
 
-  contentArea.innerHTML =  `
+	contentArea.innerHTML = `
   <div class="header">
     <h3>Today's Todos</h3>
   </div>
-  `
-  let cardContainer = document.querySelector(".cardContainer")
-  if (!cardContainer) {
-    cardContainer = document.createElement("div");
-    cardContainer.classList.add("cardContainer");
-    contentArea.appendChild(cardContainer);
-  }
-  
-  const todayTasks = returnFilteredTodos();
+  `;
+	let cardContainer = document.querySelector(".cardContainer");
+	if (!cardContainer) {
+		cardContainer = document.createElement("div");
+		cardContainer.classList.add("cardContainer");
+		contentArea.appendChild(cardContainer);
+	}
 
-  todayTasks.forEach(element => {
-    createCard(element,cardContainer)
-  });
+	const todayTasks = returnFilteredTodos();
+
+	todayTasks.forEach((element) => {
+		createCard(element, cardContainer);
+	});
 }
 
-function returnFilteredTodos (){
+function returnFilteredTodos() {
+	let activeTodos = getActiveTodos();
+	const today = new Date();
+	const year = today.getFullYear();
+	const month = String(today.getMonth() + 1).padStart(2, "0");
+	const day = String(today.getDate()).padStart(2, "0");
 
-    let activeTodos = getActiveTodos();
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2,"0");
-    const day = String(today.getDate()).padStart(2,"0");
-    
-    const formattedDate = `${year}-${month}-${day}`
-    activeTodos = activeTodos.filter((item) => item.date === formattedDate);
-    
-    console.log("active todays tasks:", activeTodos)
-    
-    return activeTodos;
+	const formattedDate = `${year}-${month}-${day}`;
+	activeTodos = activeTodos.filter((item) => item.date === formattedDate);
+
+	console.log("active todays tasks:", activeTodos);
+
+	return activeTodos;
 }
-
-
