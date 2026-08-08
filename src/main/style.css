@@ -50,11 +50,19 @@ body {
   border-radius: 10px;
 }
 
+.sidebar button .isClicked {
+  background-color: var(--secondary-bg);
+}
+
 .sidebar.bottom {
   margin-bottom: 100px;
 }
 
 .sidebar button:hover {
+  background-color: var(--secondary-bg);
+}
+
+.sidebar .btn:focus {
   background-color: var(--secondary-bg);
 }
 

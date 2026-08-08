@@ -11,6 +11,17 @@ const todayBtn = document.getElementById("today")
 
 render();
 
-allBtn.addEventListener("click", render);
-completedBtn.addEventListener("click",renderCompleted);
-todayBtn.addEventListener("click", showToday)
+allBtn.addEventListener("click", ()=>{
+  allBtn.classList.add("isClicked");
+  render();
+});
+completedBtn.addEventListener("click",()=>{
+  completedBtn.classList.add("isClicked");
+  renderCompleted();
+});
+todayBtn.addEventListener("click",()=>{
+  todayBtn.classList.add("isClicked");
+  showToday();
+});
+
+
