@@ -1,5 +1,4 @@
 import { getCompletedTodos, toggleTodo  } from "./completed.js";
-import { cardContainer } from "./all-todos.js"
 
 const contentArea = document.getElementById("content");
 
@@ -12,6 +11,7 @@ export function renderCompleted(){
   `
 //Holds the Todo List from memeory
   const completedList = getCompletedTodos();
+  console.log("completed todos list:", completedList);
 
 if (completedList.length === 0) {
   contentArea.innerHTML += `
@@ -20,24 +20,28 @@ if (completedList.length === 0) {
   </div>`
   return
 }
+
+  const cardContainer = document.createElement("div")
+  cardContainer.classList.add("cardContainer");
+
   completedList.forEach((todo) => {
-    const card = document.createElement("div")
+    const card = document.createElement("div");
     card.classList.add("listCard", "completed")
 
     card.innerHTML = `
     <input type="checkbox" id="checkbox" checked class="checkbox">
-    <h4>${data.title}</h4>
-    <p>${data.description}</p>
-    <p>${data.date}</p>
+    <h4 class="title">${todo.title}</h4>
+    <p class="desc">${todo.description}</p>
+    <p class="date">${todo.date}</p>
     `
 
     card.querySelector(".checkbox").addEventListener("change",()=>{
       toggleTodo(todo.id);
       renderCompleted();
     })
+      cardContainer.appendChild(card);
   })
   
-  cardContainer.appendChild(card);
   contentArea.appendChild(cardContainer);
 
 }

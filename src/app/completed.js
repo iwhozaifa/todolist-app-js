@@ -2,7 +2,6 @@ export let todos = [];
 
 //Helper Function to Save current State to local Storage 
 export function saveToLocalStorage(){
-
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
@@ -20,14 +19,8 @@ export function loadFromLocalStorage(){
   }
 }
 
-export function getTodos(){
-  return todos;
-}
-
 export function getCompletedTodos(){
-  return todos.filter((item) => {
-    item.completed === true;
-  })
+  return todos.filter((item) => item.completed)
 }
 
 export function getActiveTodos(){
