@@ -1,8 +1,8 @@
 import "./style.css";
 import "../styles/allPage.css";
 import "../styles/card.css";
+import {  render } from "../app/all-todos.js";
 import { renderCompleted } from "../app/completedTodos.js";
-import { addTodo, render } from "../app/all-todos.js";
 import { showToday } from "../app/today.js";
 
 const allBtn = document.getElementById("all");

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev":"webpack serve",
+    "dev": "webpack serve",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +15,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@biomejs/biome": "2.5.7",
     "css-loader": "^7.1.4",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.8",

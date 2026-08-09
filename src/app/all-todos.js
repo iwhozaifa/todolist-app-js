@@ -1,9 +1,8 @@
 import {
-	todos,
-	saveToLocalStorage,
-	loadFromLocalStorage,
-	getCompletedTodos,
 	getActiveTodos,
+	loadFromLocalStorage,
+	saveToLocalStorage,
+	todos,
 	toggleTodo,
 } from "./completed.js";
 import { createForm } from "./form.js";
@@ -43,7 +42,7 @@ export function addTodo() {
 	}
 }
 
-export function createCard(data, container) {
+export function createCard(data, _container) {
 	const cardContainer = document.createElement("div");
 	cardContainer.classList.add("cardContainer");
 

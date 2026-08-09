@@ -1,5 +1,6 @@
-import { loadFromLocalStorage, getActiveTodos } from "./completed.js";
 import { createCard } from "./all-todos.js";
+import { getActiveTodos, loadFromLocalStorage } from "./completed.js";
+
 const contentArea = document.getElementById("content");
 
 export function showToday() {

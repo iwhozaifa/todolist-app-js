@@ -1,5 +1,5 @@
-import { todos, saveToLocalStorage } from "./completed.js";
 import { createCard } from "./all-todos.js";
+import { saveToLocalStorage, todos } from "./completed.js";
 
 export function createForm() {
 	let dialog = document.getElementById("todoDialog");
